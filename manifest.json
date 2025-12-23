@@ -1,13 +1,13 @@
 {
   "name": "PorcoDesktop",
-  "version": "4.7",
+  "version": "4.7 SemprePalestra",
   "new_install_prompt_erase": true,
   "builds": [
     {
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "firmware.bin",
+          "path": "firmware_SemprePalestra_V4_7.ino.merged.bin",
           "offset": 0
         }
       ]
