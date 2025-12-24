@@ -34,5 +34,80 @@
   <p style="margin-top:1rem;font-size:0.9em;">
     Se a conexão falhar, entre em contato através do site www.PorcoDesktop.com.br.
   </p>
+
+
+  <hr style="margin:2rem 0;">
+
+<h3>Enviar mensagens para o PorcoDesktop</h3>
+
+<label>
+  Mensagem 1<br>
+  <input id="msg1" type="text" style="width:100%;" placeholder="SemprePalestra Podcast">
+</label>
+<br><br>
+
+<label>
+  Mensagem 2<br>
+  <input id="msg2" type="text" style="width:100%;" placeholder="Perfil YouTube">
+</label>
+<br><br>
+
+<label>
+  Mensagem 3<br>
+  <input id="msg3" type="text" style="width:100%;" placeholder="@semprepalestra">
+</label>
+<br><br>
+
+<button id="sendBtn">Enviar mensagens</button>
+
+<p id="status" style="margin-top:1rem;font-weight:bold;"></p>
+
+<script>
+  const API_URL = "https://us-central1-pdsemprepalestraserver.cloudfunctions.net/SemprePalestraAPI/admin/next-match-semprepalestra/messages";
+  const ADMIN_KEY = "SemprePalestra-Admin-2025";
+
+  document.getElementById("sendBtn").addEventListener("click", async () => {
+    const strMsg1 = document.getElementById("msg1").value.trim();
+    const strMsg2 = document.getElementById("msg2").value.trim();
+    const strMsg3 = document.getElementById("msg3").value.trim();
+    const statusEl = document.getElementById("status");
+
+    if (!strMsg1 || !strMsg2 || !strMsg3) {
+      statusEl.textContent = "❌ Preencha todas as mensagens.";
+      statusEl.style.color = "red";
+      return;
+    }
+
+    statusEl.textContent = "⏳ Enviando...";
+    statusEl.style.color = "black";
+
+    try {
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-ADMIN-KEY": ADMIN_KEY
+        },
+        body: JSON.stringify({
+          strMsg1,
+          strMsg2,
+          strMsg3
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error("Erro HTTP: " + response.status);
+      }
+
+      statusEl.textContent = "✅ Mensagens enviadas com sucesso!";
+      statusEl.style.color = "green";
+    } catch (error) {
+      console.error(error);
+      statusEl.textContent = "❌ Erro ao enviar mensagens.";
+      statusEl.style.color = "red";
+    }
+  });
+</script>
+
 </body>
 </html>
