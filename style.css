@@ -1,70 +1,118 @@
-/* Reset */
-* {
+/* ==============================
+   Global reset & safety
+============================== */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-/* Make all images responsive */
-img {
+html,
+body {
+  width: 100%;
   max-width: 100%;
-  height: auto;
-  display: block;
+  overflow-x: hidden; /* HARD STOP horizontal scroll */
+  margin: 0;
+  padding: 0;
 }
 
-/* Prevent iframe/video overflow */
-iframe {
-  max-width: 100%;
-}
-
-
-/* Page background */
+/* ==============================
+   Base body styles
+============================== */
 body {
   font-family: "Inter", "Segoe UI", Arial, sans-serif;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: #ffffff;
-  margin: 0;
-  padding: 2rem;
+  padding: 1rem;
 }
 
-/* Card container */
+/* ==============================
+   Main container (critical)
+============================== */
 .container {
+  width: 100%;
   max-width: 720px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 1.25rem;
   background: rgba(0, 0, 0, 0.4);
-  padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  overflow-x: hidden; /* safety */
 }
 
-/* Header */
+/* ==============================
+   Header
+============================== */
 .header {
   text-align: center;
+  width: 100%;
 }
 
 .header img {
-  max-width: 160px;
+  display: block;
   width: 100%;
+  max-width: 140px; /* HARD LIMIT */
+  height: auto;
   margin: 0 auto 1rem;
 }
 
-
-/* Titles */
+/* ==============================
+   Typography
+============================== */
 h2 {
+  margin: 0 0 1rem;
+  font-size: 1.3rem;
   color: #22c55e;
 }
 
 h3 {
   margin-top: 2rem;
+  font-size: 1.1rem;
   color: #a7f3d0;
 }
 
-/* Lists */
+ol {
+  padding-left: 1.25rem;
+}
+
 ol li {
   margin-bottom: 0.6rem;
 }
 
-/* Inputs */
+/* ==============================
+   ESP install button safety
+============================== */
+esp-web-install-button {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 1.5rem auto;
+}
+
+/* ==============================
+   Helper text
+============================== */
+.hint {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.hint strong {
+  color: #facc15;
+}
+
+/* ==============================
+   Inputs & buttons
+============================== */
+label {
+  display: block;
+  width: 100%;
+}
+
 input {
   width: 100%;
+  max-width: 100%;
   padding: 10px;
   margin-top: 4px;
   border-radius: 8px;
@@ -72,8 +120,9 @@ input {
   font-size: 1rem;
 }
 
-/* Buttons */
 button {
+  display: block;
+  width: 100%;
   margin-top: 1rem;
   padding: 12px;
   font-size: 1rem;
@@ -88,58 +137,26 @@ button:hover {
   background: #16a34a;
 }
 
-/* Helper text */
-.hint {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  opacity: 0.85;
+/* ==============================
+   Images (global hard limits)
+============================== */
+img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
 }
 
-/* Footer */
-.footer {
-  margin-top: 2rem;
-  text-align: center;
-  font-size: 0.85rem;
-  opacity: 0.8;
-}
-
-/* -----------------------------
-   Mobile adjustments
------------------------------- */
-@media (max-width: 600px) {
-  body {
-    padding: 1rem;
-  }
-
-  .container {
-    max-width: 720px;
-    width: 100%;
-    margin: auto;
-    padding: 2rem;
-  }
-
-  .header img {
-    max-width: 120px;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-  }
-
-  h3 {
-    font-size: 1.05rem;
-  }
-
-  button {
-    font-size: 1.05rem;
-  }
-}
-
+/* ==============================
+   Video thumbnail (CRITICAL)
+============================== */
 .video-thumb {
   position: relative;
+  display: block;
   width: 100%;
   max-width: 100%;
   margin-top: 1rem;
+  overflow: hidden;
 }
 
 .video-thumb img {
@@ -149,21 +166,59 @@ button:hover {
   border-radius: 12px;
 }
 
-
+/* Optional play icon if you add it later */
 .play-button {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 3.5rem;
+  font-size: 3rem;
   color: white;
-  text-shadow: 0 0 15px rgba(0,0,0,0.8);
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
   pointer-events: none;
 }
 
+/* ==============================
+   Footer
+============================== */
+.footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* ==============================
+   Horizontal rule
+============================== */
+hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 2rem 0;
+}
+
+/* ==============================
+   Mobile-specific tuning
+============================== */
 @media (max-width: 480px) {
+  body {
+    padding: 0.75rem;
+  }
+
+  .container {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
   .header img {
     max-width: 120px;
   }
-}
 
+  h2 {
+    font-size: 1.15rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+}
