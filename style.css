@@ -1,0 +1,59 @@
+/* Base reset */
+* {
+  box-sizing: border-box;
+}
+
+/* Page background */
+body {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+  margin: 0;
+  padding: 2rem;
+}
+
+/* Main container */
+.container {
+  max-width: 700px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 2rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Header */
+.header {
+  text-align: center;
+}
+
+.header img {
+  max-width: 180px;
+  margin-bottom: 1rem;
+}
+
+/* Typography */
+h2 {
+  margin-top: 0;
+  color: #a8ff60;
+}
+
+ol li {
+  margin-bottom: 0.6rem;
+}
+
+/* Buttons */
+button,
+esp-web-install-button {
+  display: block;
+  margin: 1.5rem auto;
+  font-size: 1rem;
+}
+
+/* Footer */
+.footer {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  text-align: center;
+  opacity: 0.85;
+}
