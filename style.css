@@ -1,7 +1,20 @@
-/* Base reset */
+/* Reset */
 * {
   box-sizing: border-box;
 }
+
+/* Make all images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent iframe/video overflow */
+iframe {
+  max-width: 100%;
+}
+
 
 /* Page background */
 body {
@@ -12,14 +25,14 @@ body {
   padding: 2rem;
 }
 
-/* Main container */
+/* Card container */
 .container {
-  max-width: 700px;
+  max-width: 720px;
   margin: auto;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.4);
   padding: 2rem;
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
 /* Header */
@@ -28,32 +41,129 @@ body {
 }
 
 .header img {
-  max-width: 180px;
-  margin-bottom: 1rem;
+  max-width: 160px;
+  width: 100%;
+  margin: 0 auto 1rem;
 }
 
-/* Typography */
+
+/* Titles */
 h2 {
-  margin-top: 0;
-  color: #a8ff60;
+  color: #22c55e;
 }
 
+h3 {
+  margin-top: 2rem;
+  color: #a7f3d0;
+}
+
+/* Lists */
 ol li {
   margin-bottom: 0.6rem;
 }
 
-/* Buttons */
-button,
-esp-web-install-button {
-  display: block;
-  margin: 1.5rem auto;
+/* Inputs */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border-radius: 8px;
+  border: none;
   font-size: 1rem;
+}
+
+/* Buttons */
+button {
+  margin-top: 1rem;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  background: #22c55e;
+  color: #052e16;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #16a34a;
+}
+
+/* Helper text */
+.hint {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
 }
 
 /* Footer */
 .footer {
   margin-top: 2rem;
-  font-size: 0.85rem;
   text-align: center;
-  opacity: 0.85;
+  font-size: 0.85rem;
+  opacity: 0.8;
 }
+
+/* -----------------------------
+   Mobile adjustments
+------------------------------ */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .container {
+    max-width: 720px;
+    width: 100%;
+    margin: auto;
+    padding: 2rem;
+  }
+
+  .header img {
+    max-width: 120px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+  }
+
+  button {
+    font-size: 1.05rem;
+  }
+}
+
+.video-thumb {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 1rem;
+}
+
+.video-thumb img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.5rem;
+  color: white;
+  text-shadow: 0 0 15px rgba(0,0,0,0.8);
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .header img {
+    max-width: 120px;
+  }
+}
+
