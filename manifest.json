@@ -7,7 +7,7 @@
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "firmware_SemprePalestra_V4_7.ino.merged.bin",
+          "path": "firmware_SemprePalestra_V4_7_1.ino.merged.bin",
           "offset": 0
         }
       ]
