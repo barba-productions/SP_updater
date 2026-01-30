@@ -1,6 +1,6 @@
 {
   "name": "PorcoDesktop",
-  "version": "4.7 SemprePalestra",
+  "version": "4.7.1 SemprePalestra",
   "new_install_prompt_erase": true,
   "builds": [
     {
